@@ -5,7 +5,8 @@ module.exports = (app) => {
     app.use(
         cors({
             origin: [
-                'http://localhost:5173'
+                'http://localhost:5173',
+                'https://heygov-mini-crm-task-client.vercel.app'
             ],
         })
     );
