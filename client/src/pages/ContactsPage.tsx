@@ -4,7 +4,7 @@ import AssistantChat from "../components/AssistantChat";
 import ContactList from "../components/ContactList";
 import SearchBar from "../components/SearchBar";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface ContactsPageProps {
     demoMode?: boolean;
@@ -21,18 +21,29 @@ export default function ContactsPage({ demoMode }: ContactsPageProps) {
 
     return (
         <div className="max-w-6xl mx-auto lg:p-6 space-y-8">
+
             <div className="flex items-center justify-between text-white">
                 <div>
-                    {ctx?.user?.username ? `Hello, ${ctx.user.username}` : "Hello!"}
+                    <h3>  {ctx?.user?.username ? `Hello, ${ctx.user.username}` : "Hello!"}</h3>
                 </div>
-                {ctx?.user && (
-                    <button
-                        onClick={handleLogout}
-                        className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white font-medium transition-all"
+
+                <div className="flex gap-2">
+                    <Link
+                        to="/"
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-all"
                     >
-                        Logout
-                    </button>
-                )}
+                        Home
+                    </Link>
+
+                    {ctx?.user && (
+                        <button
+                            onClick={handleLogout}
+                            className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white font-medium transition-all"
+                        >
+                            Logout
+                        </button>
+                    )}
+                </div>
             </div>
 
             {/* Demo Mode Alert */}
