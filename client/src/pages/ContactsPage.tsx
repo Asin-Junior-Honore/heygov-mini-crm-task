@@ -42,17 +42,19 @@ export default function ContactsPage({ demoMode }: ContactsPageProps) {
                 </div>
             )}
 
-            {/* AI Contact Section */}
-            <section >
-                <h2 className="text-2xl font-bold text-white mb-4">Add Contacts with AI</h2>
-                <AssistantChat />
-            </section>
+            <main className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* AI Contact Section */}
+                <section>
+                    <h2 className="text-2xl font-bold text-white mb-4">Add Contacts with AI</h2>
+                    <AssistantChat />
+                </section>
 
-            {/* Manual Contact Section */}
-            <section >
-                <h2 className="text-2xl font-bold text-white mb-4">Add Contacts Manually</h2>
-                <AddContactModal />
-            </section>
+                {/* Manual Contact Section */}
+                <section>
+                    <h2 className="text-2xl font-bold text-white mb-4">Add Contacts Manually</h2>
+                    <AddContactModal />
+                </section>
+            </main>
 
             {/* Divider */}
             <hr className="border-gray-300 my-4" />
