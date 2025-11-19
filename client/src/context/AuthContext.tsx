@@ -4,7 +4,7 @@ import { authService } from "../services/authService";
 
 export interface AuthUser {
     id: string;
-    name: string;
+    username: string;
     email: string;
 }
 
@@ -31,7 +31,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     const login = async (email: string, password: string) => {
         const res = await authService.login({ email, password });
-        console.log(res.data)
         setUser(res.data.user);
         localStorage.setItem("token", res.data.token);
     };

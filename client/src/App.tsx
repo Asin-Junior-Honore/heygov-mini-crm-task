@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
 
         {/* PUBLIC DEMO MODE (NO AUTH) */}
-        <Route path="/demo" element={<ContactsPage />} />
+        <Route path="/demo" element={<ContactsPage demoMode={true} />} />
 
         {/* AUTH PAGES */}
         <Route path="/login" element={<Login />} />
