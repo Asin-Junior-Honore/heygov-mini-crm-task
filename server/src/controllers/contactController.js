@@ -1,6 +1,6 @@
 const Contact = require('../models/Contact');
-const AppError = require('../utils/errorHandler'); 
-const { createContactSchema,updateContactSchema, addActivitySchema } = require('../validators/contactValidator');
+const AppError = require('../utils/errorHandler');
+const { createContactSchema, updateContactSchema, addActivitySchema } = require('../validators/contactValidator');
 
 class ContactController {
     static async create(req, res, next) {
@@ -20,8 +20,16 @@ class ContactController {
 
     static async list(req, res, next) {
         try {
-            const owner = req.user ? req.user.id : undefined;
-            const contacts = await Contact.find(owner ? { owner } : {}).sort({ updatedAt: -1 }).limit(200);
+            let query = {};
+
+            if (req.user && req.user.id) {
+                query = { owner: req.user.id };
+            } else {
+                query = { owner: null };
+            }
+
+            const contacts = await Contact.find(query).sort({ updatedAt: -1 })
+
             res.json(contacts);
         } catch (err) {
             next(err);
