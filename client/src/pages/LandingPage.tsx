@@ -20,7 +20,9 @@ export default function LandingPage() {
                             <FiInfo className="text-white/70 group-hover:text-white transition-colors" />
                         </button>
                     </Link>
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-sm px-3 py-1 rounded-lg shadow-lg w-56 text-center">
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 
+                transition-opacity bg-gray-800 text-white text-sm px-3 py-1 rounded-lg shadow-lg w-56 text-center
+                pointer-events-none">
                         Demo mode: view public data only. No personal data stored.
                     </div>
                 </div>
@@ -33,7 +35,9 @@ export default function LandingPage() {
                             <FiInfo className="text-white/70 group-hover:text-white transition-colors" />
                         </button>
                     </Link>
-                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-800 text-white text-sm px-3 py-1 rounded-lg shadow-lg w-56 text-center">
+                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 
+                transition-opacity bg-gray-800 text-white text-sm px-3 py-1 rounded-lg shadow-lg w-56 text-center
+                pointer-events-none">
                         Auth mode: use your own data, track interactions, and full CRM features.
                     </div>
                 </div>

@@ -5,7 +5,9 @@ const User = require("../models/User");
 async function auth(req, res, next) {
     try {
         const header = req.headers.authorization;
-        if (!header) throw new AppError("No token provided", 401);
+        if (!header) {
+            return next();
+        }
 
         const token = header.replace("Bearer ", "");
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
