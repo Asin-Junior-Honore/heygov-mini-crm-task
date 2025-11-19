@@ -7,6 +7,7 @@ const createDatabaseConnection = require('./config/db');
 const applyMiddleware = require('./middleware');
 const routes = require('./routes');
 const errorHandler = require('./utils/errorHandler');
+const homeRoute = require('./routes/home');
 
 
 const PORT = process.env.PORT || 4000;
@@ -23,7 +24,7 @@ async function start() {
         // global middleware
         applyMiddleware(app);
 
-
+        app.use('/', homeRoute);
         app.use('/api', routes);
 
         app.use(errorHandler.notFound);
@@ -31,7 +32,7 @@ async function start() {
 
 
         app.listen(PORT, () => {
-            console.log(`Server listening on port ${PORT}`);
+            console.log(`App running at: http://localhost:${PORT}`);
         });
     } catch (err) {
         console.error('Failed to start server:', err);
