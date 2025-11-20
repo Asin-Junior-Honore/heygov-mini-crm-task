@@ -34,7 +34,8 @@ export default function ContactCard({ contact }: { contact: Contact }) {
             const res = await contactService.update(editableContact._id, payload);
             setEditableContact(res.data);
             setIsEditing(false);
-        } catch (err) {
+        } catch (err: any) {
+            alert(err.response.data.error || 'Failed to update contact')
             console.error('Failed to update contact', err);
         }
     };

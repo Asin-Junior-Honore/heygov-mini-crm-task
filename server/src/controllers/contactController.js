@@ -1,5 +1,5 @@
 const Contact = require('../models/Contact');
-const AppError = require('../utils/errorHandler');
+const {AppError} = require('../utils/errorHandler');
 const { createContactSchema, updateContactSchema, addActivitySchema } = require('../validators/contactValidator');
 
 class ContactController {

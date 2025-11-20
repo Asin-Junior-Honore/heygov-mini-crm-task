@@ -3,7 +3,7 @@ const Joi = require('joi');
 
 const createContactSchema = Joi.object({
     name: Joi.string().allow('', null),
-    email: Joi.string().email().allow('', null),
+    email: Joi.string().email().optional().allow(null),
     phone: Joi.string().allow('', null),
     notes: Joi.string().allow('', null)
 }).custom((value, helpers) => {
@@ -16,7 +16,7 @@ const createContactSchema = Joi.object({
 
 const updateContactSchema = Joi.object({
     name: Joi.string().allow('', null),
-    email: Joi.string().email().allow('', null),
+    email: Joi.string().email().optional().allow(null),
     phone: Joi.string().allow('', null),
     notes: Joi.string().allow('', null)
 });
